@@ -10,6 +10,20 @@ UIImage-PHA是UIImage的一个Category，用于比较两个UIImage的相似度�
  3. 计算平均值, 比较像素的灰度(大于或等于平均值, 记为1; 小于平均值, 记为0);
  4. 计算哈希值并比较相似度(理论上, 不相同的数据位不超过5, 就说明两张图片很相似; 如果大于10, 就说明这是两张不同的图片);
 
+##使用方法
+快速比较：
+
+``` Object-C
+NSInteger differentValue = [UIImage differentValueCountWithImage:image1 andAnotherImage:image2];
+```
+
+自定义比较:
+
+``` Object-C
+NSString *pHashString1 = [[[image1 scaleToSize:CGSizeMake(8.0, 8.0)] grayImage] pHashStringValue];
+NSString *pHashString2 = [[[image2 scaleToSize:CGSizeMake(8.0, 8.0)] grayImage] pHashStringValue];
+NSInteger differentValue = [UIImage differentValueCountWithString:pHashString1 andString:pHashString2];
+```
+
 ##CocoaPods
-
-
+`pod 'UIImage+PHA', '~> 0.0.2'`
