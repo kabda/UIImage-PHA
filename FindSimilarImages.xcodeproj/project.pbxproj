@@ -12,7 +12,7 @@
 		902C58051C114D390034BCE7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 902C58041C114D390034BCE7 /* ViewController.m */; };
 		902C580A1C114D390034BCE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 902C58091C114D390034BCE7 /* Assets.xcassets */; };
 		902C580D1C114D390034BCE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902C580B1C114D390034BCE7 /* LaunchScreen.storyboard */; };
-		902C581D1C114E510034BCE7 /* UIImage+PHA.m in Sources */ = {isa = PBXBuildFile; fileRef = 902C581C1C114E510034BCE7 /* UIImage+PHA.m */; };
+		903BF0571C117FEE0093878D /* UIImage+PHA.m in Sources */ = {isa = PBXBuildFile; fileRef = 903BF0561C117FEE0093878D /* UIImage+PHA.m */; };
 		906273B81C116397005CAC71 /* CellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 906273B71C116397005CAC71 /* CellViewModel.m */; };
 		906273C11C116B80005CAC71 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 906273B91C116B80005CAC71 /* 8.jpg */; };
 		906273C21C116B80005CAC71 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 906273BA1C116B80005CAC71 /* 9.jpg */; };
@@ -43,8 +43,8 @@
 		902C58091C114D390034BCE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		902C580C1C114D390034BCE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		902C580E1C114D390034BCE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		902C581B1C114E510034BCE7 /* UIImage+PHA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PHA.h"; sourceTree = "<group>"; };
-		902C581C1C114E510034BCE7 /* UIImage+PHA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PHA.m"; sourceTree = "<group>"; };
+		903BF0551C117FEE0093878D /* UIImage+PHA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PHA.h"; sourceTree = "<group>"; };
+		903BF0561C117FEE0093878D /* UIImage+PHA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PHA.m"; sourceTree = "<group>"; };
 		906273B61C116397005CAC71 /* CellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellViewModel.h; sourceTree = "<group>"; };
 		906273B71C116397005CAC71 /* CellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellViewModel.m; sourceTree = "<group>"; };
 		906273B91C116B80005CAC71 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 		902C57FC1C114D390034BCE7 /* FindSimilarImages */ = {
 			isa = PBXGroup;
 			children = (
+				903BF0541C117FEE0093878D /* Classes */,
 				90D15BDC1C115B8800B46A9B /* Images */,
-				902C58141C114D960034BCE7 /* PHA */,
 				902C58001C114D390034BCE7 /* AppDelegate.h */,
 				902C58011C114D390034BCE7 /* AppDelegate.m */,
 				902C58031C114D390034BCE7 /* ViewController.h */,
@@ -123,14 +123,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		902C58141C114D960034BCE7 /* PHA */ = {
+		903BF0541C117FEE0093878D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				902C581B1C114E510034BCE7 /* UIImage+PHA.h */,
-				902C581C1C114E510034BCE7 /* UIImage+PHA.m */,
+				903BF0551C117FEE0093878D /* UIImage+PHA.h */,
+				903BF0561C117FEE0093878D /* UIImage+PHA.m */,
 			);
-			path = PHA;
-			sourceTree = "<group>";
+			path = Classes;
+			sourceTree = SOURCE_ROOT;
 		};
 		90D15BDC1C115B8800B46A9B /* Images */ = {
 			isa = PBXGroup;
@@ -242,8 +242,8 @@
 			files = (
 				906273B81C116397005CAC71 /* CellViewModel.m in Sources */,
 				902C58051C114D390034BCE7 /* ViewController.m in Sources */,
-				902C581D1C114E510034BCE7 /* UIImage+PHA.m in Sources */,
 				90D15BEF1C115BCD00B46A9B /* ImageCollectionViewCell.m in Sources */,
+				903BF0571C117FEE0093878D /* UIImage+PHA.m in Sources */,
 				902C58021C114D390034BCE7 /* AppDelegate.m in Sources */,
 				902C57FF1C114D390034BCE7 /* main.m in Sources */,
 			);
