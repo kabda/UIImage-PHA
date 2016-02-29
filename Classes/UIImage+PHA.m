@@ -10,7 +10,8 @@
 
 @implementation UIImage (PHA)
 
-- (UIImage *)scaleToSize:(CGSize)size {
+#pragma mark - Priate
+- (UIImage *)pha_scaleToSize:(CGSize)size {
     UIGraphicsBeginImageContext(size);
     [self drawInRect:CGRectMake(0,0, size.width, size.height)];
     UIImage* scaledImage =UIGraphicsGetImageFromCurrentImageContext();
@@ -18,11 +19,11 @@
     return scaledImage;
 }
 
-- (UIImage *)grayImage {
+- (UIImage *)pha_grayImage {
     int width = self.size.width;
     int height = self.size.height;
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
-    CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);
+    CGContextRef context = CGBitmapContextCreate (nil, width, height, 8,0, colorSpace, kCGImageAlphaNone);
     CGColorSpaceRelease(colorSpace);
     if (!context) {
         return nil;
@@ -33,7 +34,7 @@
     return grayImage;
 }
 
-- (NSString *)pHashStringValue {
+- (NSString *)pha_pHashStringValue {
     NSMutableString * pHashString = [NSMutableString string];
     CGImageRef imageRef = [self CGImage];
     unsigned long width = CGImageGetWidth(imageRef);
@@ -43,13 +44,11 @@
     const char * heightData = (char*)data.bytes;
     int sum = 0;
     for (int i = 0; i < width * height; i++) {
-        printf("%d ",heightData[i]);
         if (heightData[i] != 0) {
             sum += heightData[i];
         }
     }
     int avr = sum / (width * height);
-    NSLog(@"%d",avr);
     for (int i = 0; i < width * height; i++) {
         if (heightData[i] >= avr) {
             [pHashString appendString:@"1"];
@@ -57,10 +56,10 @@
             [pHashString appendString:@"0"];
         }
     }
-    NSLog(@"pHashString = %@,pHashStringLength = %lu",pHashString,(unsigned long)pHashString.length);
     return pHashString;
 }
 
+#pragma mark - Public
 + (NSInteger)differentValueCountWithString:(NSString *)str1 andString:(NSString *)str2 {
     NSInteger diff = 0;
     const char * s1 = [str1 UTF8String];
@@ -74,9 +73,29 @@
 }
 
 + (NSInteger)differentValueCountWithImage:(UIImage *)image1 andAnotherImage:(UIImage *)image2 {
-    NSString *pHashString1 = [[[image1 scaleToSize:CGSizeMake(8.0, 8.0)] grayImage] pHashStringValue];
-    NSString *pHashString2 = [[[image2 scaleToSize:CGSizeMake(8.0, 8.0)] grayImage] pHashStringValue];
+    NSString *pHashString1 = [[[image1 pha_scaleToSize:CGSizeMake(8.0, 8.0)] pha_grayImage] pha_pHashStringValue];
+    NSString *pHashString2 = [[[image2 pha_scaleToSize:CGSizeMake(8.0, 8.0)] pha_grayImage] pha_pHashStringValue];
     return [UIImage differentValueCountWithString:pHashString1 andString:pHashString2];
+}
+
+- (NSInteger)differentValueCountWithdAnotherImage:(UIImage *)anotierImage {
+    return [UIImage differentValueCountWithImage:self andAnotherImage:anotierImage];
+}
+
+- (NSString *)pHashStringValue {
+    return [[[self pha_scaleToSize:CGSizeMake(8.0, 8.0)] pha_grayImage] pha_pHashStringValue];
+}
+
+@end
+
+@implementation UIImage (PHA_Deprecated)
+
+- (UIImage *)scaleToSize:(CGSize)size {
+    return [self pha_scaleToSize:size];
+}
+
+- (UIImage *)grayImage {
+    return [self pha_grayImage];
 }
 
 @end

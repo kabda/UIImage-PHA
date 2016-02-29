@@ -16,7 +16,7 @@
 
 - (void)setImage:(UIImage *)image {
     _image = image;
-    self.pHashString = [[[_image scaleToSize:CGSizeMake(8.0, 8.0)] grayImage] pHashStringValue];
+    self.pHashString = [_image pHashStringValue];
 }
 
 @end

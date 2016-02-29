@@ -10,13 +10,20 @@
 
 #import <UIKit/UIKit.h>
 
+#define UIImageDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)
+
 @interface UIImage (PHA)
 
-+ (NSInteger)differentValueCountWithImage:(UIImage *)image1 andAnotherImage:(UIImage *)image2;
-
-- (UIImage *)scaleToSize:(CGSize)size;
-- (UIImage *)grayImage;
-- (NSString *)pHashStringValue;
 + (NSInteger)differentValueCountWithString:(NSString *)str1 andString:(NSString *)str2;
++ (NSInteger)differentValueCountWithImage:(UIImage *)image1 andAnotherImage:(UIImage *)image2;
+- (NSInteger)differentValueCountWithdAnotherImage:(UIImage *)anotierImage;
+- (NSString *)pHashStringValue;
+
+@end
+
+@interface UIImage (PHA_Deprecated)
+
+- (UIImage *)scaleToSize:(CGSize)size UIImageDeprecated("去除细节接口");
+- (UIImage *)grayImage UIImageDeprecated("去除细节接口");
 
 @end
