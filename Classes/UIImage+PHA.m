@@ -82,8 +82,8 @@
     return [UIImage differentValueCountWithImage:self andAnotherImage:anotierImage];
 }
 
-- (NSString *)pHashStringValue {
-    return [[[self pha_scaleToSize:CGSizeMake(8.0, 8.0)] pha_grayImage] pha_pHashStringValue];
+- (NSString *)pHashStringValueWithSize:(CGSize)size {
+    return [[[self pha_scaleToSize:size] pha_grayImage] pha_pHashStringValue];
 }
 
 @end

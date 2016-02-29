@@ -17,7 +17,7 @@
 + (NSInteger)differentValueCountWithString:(NSString *)str1 andString:(NSString *)str2;
 + (NSInteger)differentValueCountWithImage:(UIImage *)image1 andAnotherImage:(UIImage *)image2;
 - (NSInteger)differentValueCountWithdAnotherImage:(UIImage *)anotierImage;
-- (NSString *)pHashStringValue;
+- (NSString *)pHashStringValueWithSize:(CGSize)size;
 
 @end
 
