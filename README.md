@@ -15,15 +15,16 @@ UIImage-PHA是UIImage的一个Category，用于比较两个UIImage的相似度�
 
 ``` Object-C
 NSInteger differentValue = [UIImage differentValueCountWithImage:image1 andAnotherImage:image2];
+NSInteger differentValue = [image1 differentValueCountWithdAnotherImage:image2];
 ```
 
 自定义比较:
 
 ``` Object-C
-NSString *pHashString1 = [[[image1 scaleToSize:CGSizeMake(8.0, 8.0)] grayImage] pHashStringValue];
-NSString *pHashString2 = [[[image2 scaleToSize:CGSizeMake(8.0, 8.0)] grayImage] pHashStringValue];
+NSString *pHashString1 = [image1 pHashStringValueWithSize:CGSizeMake(8.0, 8.0)];
+NSString *pHashString2 = [image2 pHashStringValueWithSize:CGSizeMake(8.0, 8.0)];
 NSInteger differentValue = [UIImage differentValueCountWithString:pHashString1 andString:pHashString2];
 ```
 
 ##CocoaPods
-`pod 'UIImage+PHA', '~> 0.0.2'`
+`pod 'UIImage+PHA', '~> 0.0.3'`
